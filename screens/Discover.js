@@ -10,10 +10,12 @@ import {
 import { Attractions, Avatar, Hotels, NotFound, Restaurants } from "../assets";
 import { useEffect, useLayoutEffect, useState } from "react";
 
+import { API_KEY } from "@env";
 import { FontAwesome } from "@expo/vector-icons";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import ItemCard from "../components/ItemCard";
 import MenuContainer from "../components/MenuContainer";
+import React from "react";
 import { getPlacesData } from "./api";
 import { useNavigation } from "@react-navigation/native";
 
@@ -62,7 +64,7 @@ const Discover = () => {
             console.log(details?.geometry?.viewport);
           }}
           query={{
-            key: "AIzaSyDuGyPE7VkXd7zIIEG7zvph4S_pmS91SCQ",
+            key: API_KEY,
             language: "en",
           }}
         />
