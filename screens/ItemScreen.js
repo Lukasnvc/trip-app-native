@@ -16,7 +16,7 @@ const ItemScreen = ({ route }) => {
       headerShown: false,
     });
   }, []);
-  console.log(data?.phone, data?.email);
+
   return (
     <SafeAreaView className="flex-1 bg-[#F0F0F0] relative">
       <ScrollView className="flex-1 px-4 py-6">
@@ -112,34 +112,37 @@ const ItemScreen = ({ route }) => {
           </View>
         )}
 
-        <View className="space-y-2 mt-4 mb-8 bg-gray-200 rounded-2xl px-4 py-6">
-          {data?.phone && (
-            <View className="items-center flex-row space-x-6">
-              <FontAwesome5 name="phone" size={24} color="#3C486B" />
-              <Text className="text-lg">{data?.phone}</Text>
-            </View>
-          )}
+        {data?.phone || data?.email || data?.address ? (
+          <View className="space-y-2 mt-4 mb-8 bg-gray-200 rounded-2xl px-4 py-6">
+            {data?.phone && (
+              <View className="items-center flex-row space-x-6">
+                <FontAwesome5 name="phone" size={24} color="#3C486B" />
+                <Text className="text-lg">{data?.phone}</Text>
+              </View>
+            )}
 
-          {data?.email && (
-            <View className="items-center flex-row space-x-6">
-              <Entypo name="email" size={26} color="#3C486B" />
-              <Text className="text-lg">{data?.email}</Text>
-            </View>
-          )}
+            {data?.email && (
+              <View className="items-center flex-row space-x-6">
+                <Entypo name="email" size={26} color="#3C486B" />
+                <Text className="text-lg">{data?.email}</Text>
+              </View>
+            )}
 
-          {data?.address && (
-            <View className="items-center flex-row space-x-6">
-              <FontAwesome5 name="map-marked-alt" size={24} color="#3C486B" />
-              <Text className="text-lg">{data?.address}</Text>
-            </View>
-          )}
-
-          <View className="mt-4 py-4 px-4 rounded-lg bg-[#3C486B] items-center justify-center ">
-            <Text className="text-3xl font-bold uppercase tracking-wider text-gray-200">
-              Book Now
-            </Text>
+            {data?.address && (
+              <View className="items-center flex-row space-x-6">
+                <FontAwesome5 name="map-marked-alt" size={24} color="#3C486B" />
+                <Text className="text-lg">{data?.address}</Text>
+              </View>
+            )}
+            {data?.phone && (
+              <View className="mt-4 py-4 px-4 rounded-lg bg-[#3C486B] items-center justify-center ">
+                <Text className="text-3xl font-bold uppercase tracking-wider text-gray-200">
+                  Book Now
+                </Text>
+              </View>
+            )}
           </View>
-        </View>
+        ) : null}
       </ScrollView>
     </SafeAreaView>
   );
