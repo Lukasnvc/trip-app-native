@@ -72,7 +72,7 @@ const Discover = () => {
             setTr_lng(details?.geometry?.viewport?.northeast?.lng);
           }}
           query={{
-            key: key,
+            key: `${key}`,
             language: "en",
           }}
         />
